@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 ##
-## Adapted EGSEA code from NEMO in:
+## Adapted EGSEA code from used for NEMO (Shilova et al. 2020;  doi: 10.1371/journal.pone.0231771)
 ##     /Volumes/JMagasin_SD1/Archive/Users/jmagasin/Desktop/Researchy/ZehrLabMicroarray/NEMO2/
 ##        Make_NEMO_Figures.Rmd
 ##        Manuscript_Drafting/NEMO_NE7_GeneSets.Rmd
@@ -14,7 +14,7 @@ library(EGSEA)
 library(knitr)
 library(kableExtra)
 library(dplyr)       # For mutate()
-load('microarrays_script.RData')
+load('microarrays_script.RData')  # This is creaed by microarrays.R
 
 
 ## These impact which EGSEA results we show (not how EGSEA is run).
@@ -118,9 +118,6 @@ Taxa <- list(pro.HLI         = list(Ecotype='HLI'),
              pro.LLI         = list(Ecotype='LLI'),
              pro.LLII.III    = list(Ecotype='LLII/III'),
              pro.LLIV        = list(Ecotype='LLIV'))
-## FIXME: ONE TIME TEST
-Taxa <- list(pro.HL          = list(Ecotype=c('HLunk','HLI','HLII')),
-             pro.LL          = list(Ecotype=c('LLI','LLII/III','LLIV')))
 
 ## If include these, then there are many more gene sets for EGSEA to test. This
 ## results in fewer DE pathways, almost certainly because more gene sets --->
@@ -315,7 +312,7 @@ HTMLifyUpDownMatrix <- function(m, caption=NULL)
     m <- apply(m,2, MyCellSpec)
     rownames(m) <- pnams
 
-    ## Additional formatting.  FIXME: Update select() to us a regexp to get HL clades
+    ## Additional formatting.  FIXME: Update select() to use a regexp to get HL clades
     ## and then LL clades. Commented out for now b/c HL Pro and LL Pro are no longer
     ## in the table.
     df <- as.data.frame(m) %>%

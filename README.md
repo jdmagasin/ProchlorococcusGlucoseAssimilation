@@ -8,7 +8,7 @@ first have to obtain the raw microarray data files from NCBI GEO [series GSE1545
 The 16S rRNA data in data/16S_STABvida is processed interactively in R using scripts/analyze16S.R.
 
 
-### *Prochlorococcus* gene expression changes in response to glucose -- microarray
+## *Prochlorococcus* gene expression changes in response to glucose -- microarray
 Custom microarrays were used to detect *Prochlorococcus* gene expression changes after 4, 12, and 24 hour incubations with glucose.
 The core script for this analysis is microarrays.R, which handles all processing steps: quality control checks, background subtraction,
 probe normalization by quantiles, probe to gene conversion by median polishing, gene detection, and the identification of significantly

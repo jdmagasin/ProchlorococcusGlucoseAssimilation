@@ -1,11 +1,8 @@
-## These emails discuss 16S.  Not nec. complete:
-##    1. Dec 3, 2020 at 12:55am from Mari (b32mumam@uco.es) subject "Re: Update"
-##    ... Other emails with same subject (but some are for the ALOHA ms).
-
+## DEAR READER, this script is run interactively from the R console (not by runAllScripts.sh).
 
 ## The denoised data has 1657 "features" (distinct sequences) that represent
 ## 2,299,435 total sequences.  Can see these in the Denoise/JM_esxtracted HTML
-## report.
+## report [from STABvida].
 
 ## This must be how STABvida used QIIME2:
 ##     https://docs.qiime2.org/2020.8/plugins/available/dada2/denoise-paired/
@@ -18,10 +15,8 @@
 
 ## Aha! This seems to be the QIIME2 feature table, produced after/via DADA2
 ## denoising.
-datapath <- file.path('/Volumes','JMagasin_SD1','Experiments.noindex','MMunozProchloro16S')
+datapath <- file.path('data','16S_STABvida')
 featureTableFile <- file.path(datapath, 'Statistics','export_non_filtered','feature-table.txt')
-## CAUTION!  There is also a smaller table with just 299 ASV's
-##featureTableFile <- file.path(datapath, 'Statistics','export_4samples_500freq','feature-filteredTable.txt')
 
 ## Load ASV table.  Sample names take from first line in the file (#commented)
 asvTab <- read.table(featureTableFile)

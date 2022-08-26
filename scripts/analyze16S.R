@@ -15,8 +15,8 @@
 
 ## Aha! This seems to be the QIIME2 feature table, produced after/via DADA2
 ## denoising.
-datapath <- file.path('data','16S_STABvida')
-featureTableFile <- file.path(datapath, 'Statistics','export_non_filtered','feature-table.txt')
+datapath <- file.path('data','16S_STABvida','Statistics')
+featureTableFile <- file.path(datapath, 'feature-table.txt')
 
 ## Load ASV table.  Sample names take from first line in the file (#commented)
 asvTab <- read.table(featureTableFile)
@@ -34,7 +34,7 @@ summary(colSums(asvTab[,-1]))
 
 
 ## Sample metadata.
-sampleMetadataFile <- file.path(datapath, 'Statistics', 'sample-metadata.tsv')
+sampleMetadataFile <- file.path(datapath, 'sample-metadata.tsv')
 sampMetaTab <- read.table(sampleMetadataFile, header=F, skip=2, sep="\t")
 ## The final column is really called "Description" and it always starts with the
 ## "Sample" and the ID (e.g. 3-N0021) which is redundant.  If I chop off that

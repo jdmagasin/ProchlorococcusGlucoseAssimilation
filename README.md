@@ -16,3 +16,9 @@ was substituted for the [MicroTOOLs description](https://www.ncbi.nlm.nih.gov/ge
 ### Microbial community structure changes in response to glucose -- 16S rRNA sequencing
 Raw MiSeq sequnces were processed using a DADA2-based pipeline by a bioinformatics company. However, the analysis
 presented in the paper is mainly based on the script analyze16S.R.
+
+
+## Ensemble of Gene Set Enrichment Analyses (EGSEA) -- microarray
+In addition to single-gene differential expression analysis, we looked for pathways that responded to glucose.  Pathways
+were defined limited to genes on the microarray, and only used genes that tend to change in the same direction (increase
+together, or decrease together) as a pathway is up- or down-regulated.

@@ -16,9 +16,11 @@ the MicroTOOLs software pipeline (R package) are available from the provided lin
 
 
 ## Ensemble of Gene Set Enrichment Analyses (EGSEA) -- microarray
-In addition to single-gene differential expression analysis, we looked for pathways that responded to glucose.  Because EGSEA
-identifies genes fow which the collective change is significant, we defined pathways to include genes that increase (or decrease)
-together as the pathway is up- (or down-) regulated.
+In addition to single-gene differential expression analysis, we looked for pathways that responded to glucose treatments using
+[EGSEA](https://f1000research.com/articles/6-2010/v1).  EGSEA uses the consensus of up to 12 gene set enrichment analysis algorithms
+to identify sets of genes that in aggregate change significantly.  To use EGSEA we defined pathways to include genes that increase 
+(or decrease) together as the pathway is up- (or down-) regulated in response to glucose.  The published results define pathways
+by ecotype.  However, egsea.R also supports EGSEA for each *Prochlorococcus* strain.
 
 ## Microbial community structure changes in response to glucose -- 16S rRNA sequences
 Raw MiSeq sequences for V3 and V4 regions of 16S rRNA genes were processed using a DADA2-based pipeline by a commericial

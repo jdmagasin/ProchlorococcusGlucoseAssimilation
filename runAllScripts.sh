@@ -26,10 +26,10 @@ CWD=`pwd`
 cd $OUTDIR
 mkdir Tables Plots Plots/EGSEA
 ## ~Hack.  Help the script find these files.
-ln -s ../DropBoxImport/Transcriptomic\ analysis/UseThisFigS4forFeatureData.csv .
-ln -s ../ercc.meta.fromMari.csv .
+ln -s ../features.csv .
+ln -s ../ercc.meta.csv .
 ../scripts/microarrays.R &> log.microarrays.txt
-rm UseThisFigS4forFeatureData.csv ercc.meta.fromMari.csv
+rm features.csv ercc.meta.csv
 mv *.png Plots
 mv *.csv Tables
 

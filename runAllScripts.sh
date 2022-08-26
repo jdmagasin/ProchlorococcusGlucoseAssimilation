@@ -26,8 +26,8 @@ CWD=`pwd`
 cd $OUTDIR
 mkdir Tables Plots Plots/EGSEA
 ## ~Hack.  Help the script find these files.
-ln -s ../features.csv .
-ln -s ../ercc.meta.csv .
+ln -s ../data/features.csv .
+ln -s ../data/ercc.meta.csv .
 ../scripts/microarrays.R &> log.microarrays.txt
 rm features.csv ercc.meta.csv
 mv *.png Plots

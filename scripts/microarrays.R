@@ -60,8 +60,7 @@ cat("Parameters:\n",
     "(p<",ADJPVAL,") less than",FC,"\n")
 
 ## Probe annotation mainly used to annotate the *genes* (fData)
-##annot60K.csv <- file.path('DropBoxImport','Transcriptomic analysis','UseThisFigS4forFeatureData.csv')
-annot60K.csv <- 'UseThisFigS4forFeatureData.csv'
+annot60K.csv <- 'features.csv'
 annotTab <- read.csv(annot60K.csv)
 ## Tweaks.  Probably not needed anymore
 x <- annotTab$Pathway
@@ -151,8 +150,11 @@ requiredFeatures = c('ProbeName', 'gProcessedSignal', 'gProcessedSigError',
     'SystematicName', 'PositionX', 'PositionY')
 probeDataList <- list()
 probeFEParamsList <- list() # To check how feature extraction software was run. (added 15Mar2021)
-rawArrayDir <- file.path('/Volumes','JMagasin_SD1','Experiments.noindex',
-                         'MMunozProchloroArrays','Samples','60Karrays')
+## DEAR READER:  The Raw microarray data (before normalization) is available on NCBI GEO:
+##    https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE154594
+## Please download the data and set rawArrayDir appropriately. The "60Karrays" directory is
+## used in the regular expression at line 204.
+rawArrayDir <- file.path('path','to','unnormalized','60Karrays')
 expProto <- 'GE1_1200_Jun14 (Read Only)' # Most of the arrays had this protocol used, but a few of
                                          # them had GE1_1105_Oct12.  This should not matter w.r.t.
                                          # background subtraction, which is off for most protocols
@@ -366,7 +368,7 @@ round(log2(apply(2^hairpins,2,max)),1)
 BigStep("Getting ERCC metadata")
 cat("We need ERCC copy numbers for making linear models later.\n")
 
-erccMeta <- read.csv('ercc.meta.fromMari.csv', row.names=1)
+erccMeta <- read.csv('ercc.meta.csv', row.names=1)
 erccMeta <- erccMeta[,c('Subgroup','Attomoles_ul','Copy_number','Copy_number_used')]
 ## Looks like Mari diluted ERCC by 200x.
 stopifnot(abs(erccMeta$Copy_number / erccMeta$Copy_number_used - 200) < 0.0001)
@@ -891,7 +893,6 @@ array2condition <- c("X4h_1glucose"='X4h_glucose', "X4h_1glucose..4array."='X4h_
 if (!all(names(array2condition) == colnames(eset))) {
     warning('Names in array2condition do not exactly match the eset.  ',
             'If you did your own probe->gene processing, do not worry, I will fix.\n')
-    ## FIXME: Not sure about this remapping!!
     x <- names(array2condition)
     x[x=="X4h_1control..4array."] <- 'X4h_2control'
     x[x=="X4h_1glucose..4array."] <- 'X4h_2glucose'
@@ -926,7 +927,6 @@ cat('lmFit:  Making least-squares linear models for genes...')
 fit <- lmFit(data, design, weights=weights)
 cat('contrasts.fit:  Estimating coefficients and errors based on the models...')
 fit <- contrasts.fit(fit, contrastMatrix)  # Get coeffs, stderrs 
-## FIXME:  Using the default params for eBayes.  Makes sense?
 cat('eBayes:  Looking for differentially expressed genes...')
 fit <- eBayes(fit)  # p-values for differential expression
 rm(fac,design,comparisons,data,weights)
@@ -1048,7 +1048,6 @@ MakeVolcanoPlot <- function(coef)
     ## Rename levels to include DE gene counts <-- moved to later
     ##levels(df$Pathway) <- c(paste0(names(numDE),' [',numDE,']'),'Other')
 
-    ## FIXME: The pathways palette should be the same as in the heat map.
     if (FALSE) {
         ## Old way. Inconsistent across volcano plots.
         pal <- c('red','blue','black','purple','darkorange','green','brown','cyan','yellow','darkgreen') ##,'gray')

@@ -1,0 +1,20 @@
+SampleID	Time	DayCycle	Replicate	Treatment_Glu	DataSet	Description
+q2:types	numeric	numeric	categorical	categorical	categorical	categorical
+3-N0021	4	1	1	+	A	Sample3-N0021_4h_1day_+Glu
+7-N0022	4	1	1	-	B	Sample7-N0022_4h_1day_-Glu
+11-N0023	12	1	1	+	A	Sample11-N0023_12h_1day_+Glu
+15-N0025	12	1	1	-	B	Sample15-N0025_12h_1day_-Glu
+19-N0027	24	1	1	+	A	Sample19-N0027_24h_1day_+Glu
+23-N0028	24	1	1	-	B	Sample23-N0028_24h_1day_-Glu
+27-N0029	4	2	1	+	C	Sample27-N0029_4h_2day_+Glu
+28-N0030	4	2	2	+	C	Sample28-N0030_4h_2day_+Glu
+31-N0031	4	2	1	-	D	Sample31-N0031_4h_2day_-Glu
+35-N0033	12	2	1	+	C	Sample35-N0033_12h_2day_+Glu
+36-N0034	12	2	2	+	C	Sample36-N0034_12h_2day_+Glu
+39-N0035	12	2	1	-	D	Sample39-N0035_12h_2day_-Glu
+40-N0036	12	2	2	-	D	Sample40-N0036_12h_2day_-Glu
+43-N0037	24	2	1	+	C	Sample43-N0037_24h_2day_+Glu
+44-N0038	24	2	2	+	C	Sample44-N0038_24h_2day_+Glu
+47-N0039	24	2	1	-	D	Sample47-N0039_24h_2day_-Glu
+48-N0040	24	2	2	-	D	Sample48-N0040_24h_2day_-Glu
+Croco-N0020						SampleCroco-N0020_h_day_Glu

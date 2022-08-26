@@ -8,14 +8,15 @@ Custom microarrays were used to detect *Prochlorococcus* gene expression changes
 The core script for this analysis is microarrays.R, which handles all processing steps: quality control checks, background subtraction,
 probe normalization by quantiles, probe to gene conversion by median polishing, gene detection, and the identification of significantly
 differentially expressed genes in glucose treatments versus controls.  The script depends entirely upon a [software pipeline](https://www.jzehrlab.com/microtools)
-that was created by Jonathan Zehr's lab at UC Santa Cruz for the MicroTOOLs microarray design.  To use the pipeline for the present study, 
+that was created by Jonathan Zehr's lab at UC Santa Cruz for the MicroTOOLs microarray design 
+([Shilova et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4069398/)).  To use the pipeline for the present study,
 the [*Prochlorococcus* microarray description](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL28884)
-was substituted for the [MicroTOOLs description](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL24371).
-
+was substituted for the [MicroTOOLs description](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL24371).  Instructions for installing
+the MicroTOOLs software pipeline (R package) are available from the provided link.
 
 ### Microbial community structure changes in response to glucose -- 16S rRNA sequencing
-Raw MiSeq sequnces were processed using a DADA2-based pipeline by a bioinformatics company. However, the analysis
-presented in the paper is mainly based on the script analyze16S.R.
+Raw MiSeq sequences for V3-V4 regions of 16S rRNA were processed using a DADA2-based pipeline by a commericial bioinformatics company.
+However, the analysis described in the paper is mainly based on the script analyze16S.R.
 
 
 ## Ensemble of Gene Set Enrichment Analyses (EGSEA) -- microarray

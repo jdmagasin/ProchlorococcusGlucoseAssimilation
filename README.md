@@ -1,6 +1,6 @@
 # ProchlorococcusGlucoseAssimilation
 
-This repository has analysis scripts used in the article *Differential timing for glucose assimilation in Prochlorococcus and coexistent microbial populations in the North Pacific Subtropical Gyre* accepted for publication in *Microbiology Spectrum* in August 2022.
+This repository has analysis scripts used in the article *Differential timing for glucose assimilation in* Prochlorococcus *and coexistent microbial populations in the North Pacific Subtropical Gyre* by Muñoz-Marín et al., accepted for publication in *Microbiology Spectrum* in August 2022.
 
 
 ### *Prochlorococcus* gene expression changes in response to glucose -- microarray
@@ -14,12 +14,12 @@ the [*Prochlorococcus* microarray description](https://www.ncbi.nlm.nih.gov/geo/
 was substituted for the [MicroTOOLs description](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL24371).  Instructions for installing
 the MicroTOOLs software pipeline (R package) are available from the provided link.
 
-### Microbial community structure changes in response to glucose -- 16S rRNA sequencing
-Raw MiSeq sequences for V3-V4 regions of 16S rRNA were processed using a DADA2-based pipeline by a commericial bioinformatics company.
-However, the analysis described in the paper is mainly based on the script analyze16S.R.
-
 
 ## Ensemble of Gene Set Enrichment Analyses (EGSEA) -- microarray
-In addition to single-gene differential expression analysis, we looked for pathways that responded to glucose.  Pathways
-were defined limited to genes on the microarray, and only used genes that tend to change in the same direction (increase
-together, or decrease together) as a pathway is up- or down-regulated.
+In addition to single-gene differential expression analysis, we looked for pathways that responded to glucose.  Because EGSEA
+identifies genes fow which the collective change is significant, we defined pathways to include genes that increase (or decrease)
+together as the pathway is up- (or down-) regulated.
+
+## Microbial community structure changes in response to glucose -- 16S rRNA sequences
+Raw MiSeq sequences for V3 and V4 regions of 16S rRNA genes were processed using a DADA2-based pipeline by a commericial
+bioinformatics company.  However, the analysis described in the paper is mainly based on analyze16S.R.

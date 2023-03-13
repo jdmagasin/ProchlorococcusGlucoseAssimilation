@@ -1,6 +1,6 @@
 # ProchlorococcusGlucoseAssimilation
 
-This repository has analysis scripts used in the article *Differential timing for glucose assimilation in* Prochlorococcus *and coexistent microbial populations in the North Pacific Subtropical Gyre* by Muñoz-Marín et al., accepted for publication in *Microbiology Spectrum* in August 2022.
+This repository has analysis scripts used in the article [*Differential timing for glucose assimilation in* Prochlorococcus *and coexistent microbial populations in the North Pacific Subtropical Gyre*](https://journals.asm.org/doi/10.1128/spectrum.02466-22) by Muñoz-Marín et al., accepted for publication in *Microbiology Spectrum* in August 2022.
 
 
 Microarray data is processed by the BASH script runAllScripts.sh which runs scripts/microarrays.R and scripts/egsea.R. However, you will
